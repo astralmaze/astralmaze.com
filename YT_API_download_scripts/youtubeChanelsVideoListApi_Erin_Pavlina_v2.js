@@ -7,7 +7,7 @@ const {Pool} = require('pg');
 // var jsn = require("./YTvideosChanelsListItems.json");
 //jsn = JSON.parse(jsn);
 
-//console.log(jsn);
+//console.log(jsn); toto
 
 
 
