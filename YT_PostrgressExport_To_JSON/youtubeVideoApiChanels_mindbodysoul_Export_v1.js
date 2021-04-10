@@ -38,7 +38,7 @@ async function toto() {
             const postgresRes= await  pool.query('SELECT * FROM public.channels WHERE includedinjson = $1 AND channelname=$2 ORDER BY "publishedDate" DESC;', data);
         console.log(postgresRes.rows);
 
-        await  fs.writeFile('./src/YTvideosChannels_'+channelName+'.json', JSON.stringify(postgresRes.rows), function (err) {
+        await  fs.writeFile('../src/YTvideosChannels_'+channelName+'.json', JSON.stringify(postgresRes.rows), function (err) {
           if (err) return console.log(err);
           console.log('Hello World > helloworld.txt');
           return;
