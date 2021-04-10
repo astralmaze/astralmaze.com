@@ -14,6 +14,7 @@ const {Pool} = require('pg');
 const axios = require('axios');
 
 global.ACCESS_TOKEN=process.env.API_KEY;
+global.PUBLIC_PATH=process.env.PUBLIC_PATH;
 
 const pool= new Pool({
             user: process.env.DB_USER,
@@ -156,7 +157,7 @@ axios.get('https://www.googleapis.com/youtube/v3/channels?part=snippet&id='+Chan
 
 
 
-const file = fs.createWriteStream("./public/thumb/channels-logos/"+ChannelId+".jpg");
+const file = fs.createWriteStream(global.PUBLIC_PATH+"/thumb/channels-logos/"+ChannelId+".jpg");
 const request = https.get(thumbnail, function(response) {
   response.pipe(file);
 });
@@ -211,7 +212,7 @@ async function getYTVideo(videoId, ChannelId, ChannelName){
 
 
 
-                      const file =  fs.createWriteStream("./public/thumb/topics/"+videoId+".jpg");
+                      const file =  fs.createWriteStream(global.PUBLIC_PATH+"/thumb/topics/"+videoId+".jpg");
                          const request =  https.get(thumbnail, async function(response) {
                         response.pipe(file);
 
